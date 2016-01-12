@@ -38,7 +38,7 @@
        read(10,*) beta, ntau, X0
        Write(50,*) 'Beta is:  ', beta
        Write(50,*) 'Using the data from 0 to Beta/2 '
-       ntau = ntau/2
+!       ntau = ntau/2
        Allocate ( XCOV(NTAU,NTAU), XQMC(NTAU),XTAU(NTAU) )
        XCOV  = 0.d0
        Do nt = 1,NTAU
@@ -78,7 +78,10 @@
 
        pi = 3.1415927
 
-       XKER = (exp(-tau*om) + exp(-( beta - tau )*om ) ) / ( pi*(1.d0 + exp( - beta * om ) ) )
+!       XKER = (exp(-tau*om) + exp(-( beta - tau )*om ) ) / ( pi*(1.d0 + exp( - beta * om ) ) )
+
+       !Switch to the same as Max_SAC_p.f90, which do not consider symmetry over beta/2
+       XKER = exp(-tau*om) / ( pi*(1.d0 + exp( - beta * om ) ) )
 
      end function XKER
 
