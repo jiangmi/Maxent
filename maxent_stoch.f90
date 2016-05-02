@@ -240,8 +240,8 @@ Module MaxEnt_stoch_mod
                  om = PhiM1(dble(nd)/dble(NDis))
                  Aom = Xn_m(nd) * Xmom1
                  Err = Xn_e(nd) * Xmom1
-                 Xn_m(nd) = Back_Trans_Aom(Aom,Beta,om) 
-                 Xn_e(nd) = Back_Trans_Aom(Err,Beta,om) 
+                 Xn_m(nd) = Back_Trans_Aom(Aom,om,Beta) 
+                 Xn_e(nd) = Back_Trans_Aom(Err,om,Beta) 
                  IF (Xn_m(nd) .gt. XMAX ) XMAX = Xn_m(nd)
               enddo
               File_root = "Aom_ps"
